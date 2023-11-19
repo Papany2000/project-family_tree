@@ -10,6 +10,8 @@ import { FamilyMember } from './family_members/FamilyMembers.model';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { User } from './users/users.model';
+import { VideoModule } from './video/video.module';
+import { Video } from './video/video.model';
 
 
 @Module({
@@ -24,13 +26,14 @@ import { User } from './users/users.model';
       username: process.env.POSTGRES_USER,                                // системные переменные
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [Relative, FamilyMember, User],                             // импортируем создаваемые модели
+      models: [Relative, FamilyMember, User, Video],                             // импортируем создаваемые модели
       autoLoadModels: true,                                               // таблица создаётся в базе автоматически на основании  моделей models
     }),
     RelativesModule,
     FamilyMembersModule,
     AuthModule,
-    UsersModule],
+    UsersModule,
+    VideoModule],
   controllers: [AppController],
   providers: [AppService],
 

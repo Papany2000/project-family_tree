@@ -17,7 +17,13 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "db:migrate:up": "npx sequelize-cli db:migrate",
+    "db:migrate:undo": "npx sequelize-cli db:migrate:undo",
+    "db:create": "npx sequelize-cli db:create",
+    "db:drop": "npx sequelize-cli db:drop",
+    "db:reload:all:win": "npm run db:drop & npm run db:create && npm run db:migrate:up",
+    "db:migrate:undo:all": "npx sequelize-cli db:migrate:undo:all"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
@@ -26,7 +32,7 @@
     "@nestjs/jwt": "^10.1.1",
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/sequelize": "^10.0.0",
-    "@nestjs/swagger": "^7.1.13",
+    "@nestjs/swagger": "^7.1.16",
     "@nestjs/typeorm": "^10.0.0",
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.5.1",
